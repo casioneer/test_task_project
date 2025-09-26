@@ -113,17 +113,23 @@
   color: #ffffff;
 }
 
-/* 1440: 2 колонки по 565, gap 30, граница #DEDEDE */
+/* 1440: одна колонка 768, высота 220, gap 30 */
 @media (max-width: 1440px) {
   .cards {
-    grid-template-columns: repeat(2, 565px);
+    grid-template-columns: 768px;
     grid-auto-rows: 220px;
     gap: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .cards__item {
-    width: 565px;
+    width: 768px;
     height: 220px;
     border-color: #DEDEDE;
+    border-width: 1px;
+    border-radius: 8px;
+    opacity: 1;
+    transform: rotate(0deg);
   }
   /* Make text column fluid so content does not overflow the card */
   .cards__info {
@@ -151,11 +157,15 @@
     grid-template-columns: 768px;
     grid-auto-rows: 220px;
     gap: 30px;
-    justify-content: start;
+    justify-content: center; /* центрируем грид на 769–1160 */
   }
   .cards__item {
     width: 768px;
     height: 220px;
+    border-radius: 8px;
+    border-width: 1px;
+    opacity: 1;
+    transform: rotate(0deg);
   }
 }
 
@@ -165,11 +175,40 @@
     grid-template-columns: 576px;
     grid-auto-rows: 220px;
     gap: 30px;
+    margin-left: auto;  /* центрируем одноколоночный грид */
+    margin-right: auto;
   }
   .cards__item {
     width: 576px;
     height: 220px;
+    border-radius: 8px;
+    border-width: 1px;
+    opacity: 1;
+    transform: rotate(0deg);
   }
+  /* Делает правую колонку гибкой, чтобы не вылезала за 576 */
+  .cards__info {
+    width: auto;
+    height: auto;
+    padding-left: 30px;  /* 30px от фото до текста */
+    padding-right: 30px; /* симметрия справа */
+  }
+  .cards__title,
+  .cards__stock-text {
+    width: 100%;
+    overflow-wrap: anywhere;
+  }
+  /* Размеры текстового блока после 768 */
+  .cards__title {
+    width: 285px;
+    height: 66px;
+    transform: rotate(0deg);
+    opacity: 1;
+    margin-left: 0;   /* выравниваем с остальным контентом */
+    margin-right: 0;
+    text-align: left; /* в линию с "в наличии" и кнопкой */
+  }
+  .cards__stock-text { }
 }
 
 /* 576: две колонки 170, высота 373, gap 20 */
@@ -182,7 +221,69 @@
   .cards__item {
     width: 170px;
     height: 373px;
+    display: flex;              /* элементы в столбик */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;                  /* расстояние между элементами 10px */
+    border-radius: 8px;
+    border-width: 1px;
+    opacity: 1;
+    transform: rotate(0deg);
   }
+  /* Изображение квадратное и по ширине карточки */
+  .cards__media {
+    width: 100%;
+    aspect-ratio: 1 / 1;        /* квадрат */
+    height: auto;
+    border-radius: 8px;
+    background: #F5F7FA;
+    overflow: hidden;
+  }
+  .cards__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* заполняет квадрат без искажений */
+  }
+  /* Контент в колонку, фиксированная ширина */
+  .cards__info {
+    width: 100%;
+    height: auto;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 10px;
+    align-items: center;
+  }
+  /* Надпись (заголовок) — Open Sans 14 / 145% */
+  .cards__title {
+    width: 150px; /* сохранена ширина текста как в ТЗ */
+    font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 145%;
+    letter-spacing: 0;
+    text-align: center;
+    height: auto;
+  }
+  .cards__stock {
+    width: 150px;
+    height: auto;
+    justify-content: center;
+    gap: 10px;
+  }
+  .cards__stock-text { width: auto; height: auto; font-size: 14px; line-height: 145%; }
+  /* Кнопка 150x43, паддинги по заданию */
+  .cards__button {
+    width: 150px;
+    height: 43px;
+    padding-top: 8px;
+    padding-right: 30px;
+    padding-bottom: 12px;
+    padding-left: 30px;
+    border-radius: 8px;
+  }
+  .cards__button-text { width: auto; height: auto; font-size: 14px; line-height: 145%; }
   /* показывать только первые 4 карточки */
   .cards__item:nth-child(n+5) { display: none; }
 }

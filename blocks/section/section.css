@@ -1,7 +1,7 @@
 .section {
   margin-top: 80px; /* 80px ниже навбара */
   width: 1440px;
-  height: 799px;
+  height: auto; /* авто, чтобы секции не накладывались друг на друга */
   display: flex;
   gap: 30px;
   opacity: 1;
@@ -34,17 +34,183 @@
   box-sizing: border-box;
 }
 
+/* Убираем отступ у второй секции, чтобы она была впритык к кнопке */
+.section + .section { margin-top: 0; }
+
+/* CTA под карточками */
+.section__cta {
+  margin-top: 30px; /* 30 снизу от предыдущего блока */
+  display: flex;
+  justify-content: center;
+}
+
+.section__cta-button {
+  width: 223px;
+  height: 46px;
+  border-radius: 8px;
+  background: #272A33;
+  color: #ffffff;
+  border: 1px solid #272A33;
+  cursor: pointer;
+}
+
+/* Контент секции "О компании" - две колонки */
+.section__content {
+  margin-top: 30px; /* 30px от заголовка "О компании" до контента */
+  display: flex;
+  gap: 30px;
+  align-items: flex-end; /* выравниваем по нижнему краю, чтобы кнопка была наравне с картинками */
+}
+
+.section__text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  order: 2; /* правая колонка */
+  align-items: flex-start; /* выравнивание по левому краю, не по центру */
+  justify-content: space-between; /* равномерное распределение блоков */
+  height: 394px; /* такая же высота как у галереи */
+}
+
+.section__cta {
+  margin-top: auto; /* прижимаем кнопку к нижнему краю */
+}
+
+.section__gallery {
+  flex: 1;
+  position: relative;
+  width: 705px;
+  height: 394px; /* 202 + 30 + 162 */
+  order: 1; /* левая колонка */
+}
+
+/* Вводный текст */
+.section__intro {
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.section__intro p {
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0;
+  color: #272A33;
+  margin: 0;
+}
+
+/* Список преимуществ */
+.section__features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.feature__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.feature__check {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  background: #EE753E; /* оранжевая галочка */
+  border-radius: 100px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.feature__check-icon {
+  display: block;
+  width: 12px;
+  height: 8px;
+  position: absolute;
+  top: 8px;
+  left: 6px;
+  border-width: 2px;
+}
+
+.feature__text {
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0;
+  color: #272A33;
+}
+
+/* Описание */
+.section__description p {
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0;
+  color: #272A33;
+  margin: 0;
+}
+
+/* Галерея фотографий - убрано дублирование */
+
+.gallery__item {
+  position: absolute;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gallery__item--large {
+  width: 705px;
+  height: 202px;
+  top: 0;
+  left: 0;
+}
+
+.gallery__item--small-left {
+  width: 337px;
+  height: 162px;
+  top: 232px; /* 202 + 30 */
+  left: 0;
+}
+
+.gallery__item--small-right {
+  width: 335px;
+  height: 162px;
+  top: 232px; /* 202 + 30 */
+  left: 370px; /* 337 + 30 + 3 (небольшая корректировка) */
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 /* 1440 */
 @media (max-width: 1440px) {
   .section {
-    width: 1160px;
-    height: 875px;
+    width: 768px;
+    height: auto; /* тянем по содержимому */
     gap: 30px;
+    transform: rotate(0deg);
+    opacity: 1;
+    margin-left: auto;
+    margin-right: auto;
   }
   .section__title {
-    width: 1160px;
-    height: 49px;
-    font-size: 36px;
+    width: 768px;
+    height: 41px;
+    font-size: 30px;
     line-height: 135%;
   }
 }
@@ -53,7 +219,7 @@
 @media (max-width: 1160px) {
   .section {
     width: 768px;
-    height: 1617px;
+    height: auto;
     gap: 30px;
   }
   .section__title {
@@ -68,8 +234,12 @@
 @media (max-width: 768px) {
   .section {
     width: 576px;
-    height: 1600px;
+    height: auto;
     gap: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotate(0deg);
+    opacity: 1;
   }
   .section__title {
     width: 576px;
@@ -83,8 +253,10 @@
 @media (max-width: 576px) {
   .section {
     width: 360px;
-    height: 876px;
+    height: auto;
     gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .section__title {
     width: 360px;
@@ -98,8 +270,10 @@
 @media (max-width: 390px) {
   .section {
     width: 360px;
-    height: 876px;
+    height: auto;
     gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .section__title {
     width: 360px;

@@ -96,32 +96,35 @@
 @media (max-width: 1440px) {
   .navbar__menu { display: none; }
   .navbar__toggle { display: inline-flex; }
-  /* Отступ между логотипом и кнопкой: 538px */
-  .navbar__inner { gap: 538px; justify-content: flex-start; }
-  .navbar { padding-left: 0; padding-right: 0; }
+  /* Отступ между логотипом и кнопкой: 538px, но вся группа центрируется */
+  .navbar__inner { gap: 538px; justify-content: center; }
+  .navbar { padding-left: 0; padding-right: 0; justify-content: center; box-sizing: border-box; }
 }
 
 /* Узкий диапазон 1161–1440px: фиксируем 538px, повышаем приоритет */
 @media (min-width: 1161px) and (max-width: 1440px) {
   .navbar__inner {
     gap: 538px !important;
-    justify-content: flex-start;
+    justify-content: center !important;
     width: auto !important;        /* использовать ширину по содержимому */
     max-width: none !important;     /* не ограничивать 1420px в этом диапазоне */
   }
   .navbar__menu { display: none !important; }
   .navbar__toggle { display: inline-flex !important; }
+  .navbar { padding-left: 0; padding-right: 0; box-sizing: border-box; justify-content: center; }
 }
 
 /* <=1160px: лого 180x38.5714, отступы по краям 96px, пара по центру */
 @media (max-width: 1160px) {
-  .navbar { padding-left: 96px; padding-right: 96px; box-sizing: border-box; }
+  .navbar { padding-left: 0; padding-right: 0; box-sizing: border-box; justify-content: center; }
   .navbar__inner {
-    width: 100%;
-    max-width: none;
+    width: 768px;
+    max-width: 768px;
     height: 78.5714px;
     gap: 0; /* управляем расстоянием распределением */
-    justify-content: space-between; /* лого слева, бургер справа, по 96px от краёв */
+    justify-content: space-between; /* лого слева, бургер справа */
+    margin-left: auto; /* центрируем контейнер */
+    margin-right: auto;
   }
   .navbar__logo {
     width: 180px;
@@ -138,6 +141,19 @@
   }
   .navbar__menu { display: none; }
   .navbar__toggle { display: inline-flex; flex: 0 0 auto; }
+}
+
+/* <=768px: симметричные отступы и центрирование контейнера */
+@media (max-width: 768px) {
+  .navbar { padding-left: 0; padding-right: 0; box-sizing: border-box; justify-content: center; }
+  .navbar__inner {
+    width: 576px;
+    max-width: 576px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    gap: 0; /* исключаем сдвиги из-за промежутка */
+  }
 }
 
 .navbar__item { margin: 0; padding: 0; }
