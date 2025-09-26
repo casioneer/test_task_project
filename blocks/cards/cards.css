@@ -98,6 +98,23 @@
   border: 1px solid #E0E6ED;
   background: #272A33;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover состояние для кнопок товаров */
+.cards__button:hover {
+  background: #EE753E !important; /* оранжевый цвет на hover */
+  border: 1px solid #EE753E !important;
+  color: #ffffff !important;
+}
+
+/* Disabled состояние для кнопок товаров */
+.cards__button:disabled {
+  background: #272A33 !important; /* темный цвет на disabled */
+  border: 1px solid #272A33 !important;
+  color: #ffffff !important;
+  opacity: 0.2 !important;
+  cursor: not-allowed !important;
 }
 
 .cards__button-text {

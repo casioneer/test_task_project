@@ -79,6 +79,95 @@
 .navbar__bar:nth-child(2) { top: 50%; transform: translate(-50%, -50%); }
 .navbar__bar:nth-child(3) { bottom: 16px; }
 
+/* Мобильное меню */
+.navbar__menu-mobile {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 576px; /* изменил с 768px на 576px */
+  background: #ffffff;
+  border: 1px solid #272A33;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none; /* скрыто по умолчанию */
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.navbar__menu-mobile.navbar__menu-mobile--open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-height: 500px !important; /* достаточная высота для 5 пунктов */
+  display: flex !important;
+}
+
+.navbar__menu-mobile .navbar__item-mobile {
+  width: 576px; /* изменил с 768px на 576px */
+  height: 64px;
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* прижимаем к левому краю */
+  box-sizing: border-box;
+  flex-shrink: 0; /* не сжимать элементы */
+}
+
+.navbar__menu-mobile .navbar__item-mobile:last-child {
+  border-bottom: none;
+}
+
+.navbar__menu-mobile .navbar__link-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* прижимаем к левому краю */
+  width: 576px; /* изменил с 768px на 576px */
+  height: 24px;
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  text-align: left; /* выравниваем текст по левому краю */
+  color: #272A33 !important; /* темный цвет вместо фиолетового */
+  text-decoration: none !important; /* убираем подчеркивание */
+  border-radius: 0;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+  padding-left: 20px; /* отступ слева */
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.navbar__menu-mobile .navbar__link-mobile:hover {
+  background-color: #f8f9fa;
+}
+
+/* Анимация бургера */
+.navbar__toggle--active .navbar__bar:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.navbar__toggle--active .navbar__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle--active .navbar__bar:nth-child(3) {
+  bottom: 50%;
+  transform: translate(-50%, 50%) rotate(-45deg);
+}
+
 /* <1920px: по 140px слева/справа, чтобы держать одинаковые поля при сужении */
 @media (max-width: 1919px) {
   .navbar {
@@ -95,6 +184,8 @@
 /* <=1440px: скрываем меню и показываем бургер */
 @media (max-width: 1440px) {
   .navbar__menu { display: none; }
+  .navbar__menu-mobile { display: none; } /* скрыто по умолчанию */
+  .navbar__menu-mobile.navbar__menu-mobile--open { display: flex !important; } /* показываем только при открытии */
   .navbar__toggle { display: inline-flex; }
   /* Отступ между логотипом и кнопкой: 538px, но вся группа центрируется */
   .navbar__inner { gap: 538px; justify-content: center; }
@@ -140,6 +231,8 @@
     object-fit: contain;
   }
   .navbar__menu { display: none; }
+  .navbar__menu-mobile { display: none; }
+  .navbar__menu-mobile.navbar__menu-mobile--open { display: flex !important; }
   .navbar__toggle { display: inline-flex; flex: 0 0 auto; }
 }
 
@@ -153,6 +246,43 @@
     margin-right: auto;
     justify-content: space-between;
     gap: 0; /* исключаем сдвиги из-за промежутка */
+  }
+  
+  .navbar__menu { display: none; }
+  .navbar__menu-mobile { display: none; }
+  .navbar__menu-mobile.navbar__menu-mobile--open { display: flex !important; }
+  
+  /* Мобильное меню для 768px */
+  .navbar__menu-mobile {
+    width: 576px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .navbar__menu-mobile .navbar__item-mobile {
+    width: 576px;
+    height: 64px;
+    padding: 20px;
+    justify-content: flex-start;
+  }
+  
+  .navbar__menu-mobile .navbar__link-mobile {
+    width: 576px;
+    height: 24px;
+    font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #272A33 !important; /* темный цвет вместо фиолетового */
+    text-decoration: none !important; /* убираем подчеркивание */
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 20px;
+    opacity: 1;
+    transform: rotate(0deg);
   }
 }
 
@@ -193,6 +323,41 @@
     justify-content: flex-start;
     gap: 129px; /* фиксируем расстояние между лого и бургером */
   }
+  
+  .navbar__menu { display: none; }
+  .navbar__menu-mobile { display: none; }
+  .navbar__menu-mobile.navbar__menu-mobile--open { display: flex !important; }
+  
+  /* Мобильное меню для 576px */
+  .navbar__menu-mobile {
+    width: 360px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .navbar__menu-mobile .navbar__item-mobile {
+    width: 360px;
+    height: 64px;
+    padding: 20px;
+    justify-content: flex-start;
+  }
+  
+  .navbar__menu-mobile .navbar__link-mobile {
+    width: 360px;
+    height: 24px;
+    font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 20px;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
 }
 
 /* <=390px: отступы слева/справа по 13px */
@@ -203,6 +368,41 @@
     max-width: none;
     justify-content: flex-start;
     gap: clamp(8px, 33vw, 129px); /* уменьшать gap ниже 390px */
+  }
+  
+  .navbar__menu { display: none; }
+  .navbar__menu-mobile { display: none; }
+  .navbar__menu-mobile.navbar__menu-mobile--open { display: flex !important; }
+  
+  /* Мобильное меню для 390px */
+  .navbar__menu-mobile {
+    width: 360px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .navbar__menu-mobile .navbar__item-mobile {
+    width: 360px;
+    height: 64px;
+    padding: 20px;
+    justify-content: flex-start;
+  }
+  
+  .navbar__menu-mobile .navbar__link-mobile {
+    width: 360px;
+    height: 24px;
+    font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 20px;
+    opacity: 1;
+    transform: rotate(0deg);
   }
 }
 

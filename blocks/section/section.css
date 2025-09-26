@@ -51,6 +51,34 @@
   color: #ffffff;
   border: 1px solid #272A33;
   cursor: pointer;
+  padding: 8px 30px 12px 30px;
+  gap: 10px;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+/* Базовые стили для кнопки Подробнее в секции О компании */
+section[aria-label="О компании"] .section__cta-button {
+  background: #272A33;
+  color: #ffffff;
+  border: 1px solid #272A33;
+}
+
+/* Hover состояние для кнопки Подробнее в секции О компании */
+.section__cta-button:hover {
+  background: #EE753E !important; /* оранжевый цвет на hover */
+  border: 1px solid #EE753E !important;
+  color: #ffffff !important;
+}
+
+/* Disabled состояние для кнопки Подробнее в секции О компании */
+.section__cta-button:disabled {
+  background: #272A33 !important; /* темный цвет на disabled */
+  border: 1px solid #272A33 !important;
+  color: #ffffff !important;
+  opacity: 0.2 !important;
+  cursor: not-allowed !important;
 }
 
 /* Контент секции "О компании" - две колонки */
