@@ -136,6 +136,13 @@
     width: 100%;
     overflow-wrap: anywhere; /* prevent long strings causing overflow */
   }
+  /* Specific title block size at 1440 */
+  .cards__title {
+    width: 285px;
+    height: 66px;
+    transform: rotate(0deg);
+    opacity: 1;
+  }
 }
 
 /* 1160: в столбик, ширина карточки 768, высота 220, gap 30 */
