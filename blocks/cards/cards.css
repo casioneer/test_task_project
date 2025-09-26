@@ -125,6 +125,17 @@
     height: 220px;
     border-color: #DEDEDE;
   }
+  /* Make text column fluid so content does not overflow the card */
+  .cards__info {
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .cards__title,
+  .cards__stock-text {
+    width: 100%;
+    overflow-wrap: anywhere; /* prevent long strings causing overflow */
+  }
 }
 
 /* 1160: в столбик, ширина карточки 768, высота 220, gap 30 */
