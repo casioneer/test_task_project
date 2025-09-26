@@ -34,8 +34,7 @@
   box-sizing: border-box;
 }
 
-/* Убираем отступ у второй секции, чтобы она была впритык к кнопке */
-.section + .section { margin-top: 0; }
+/* Отступ между секциями будет задан в медиа-запросах */
 
 /* CTA под карточками */
 .section__cta {
@@ -199,7 +198,7 @@
 /* 1440 */
 @media (max-width: 1440px) {
   .section {
-    width: 768px;
+    width: 1160px; /* 565 + 30 + 565 */
     height: auto; /* тянем по содержимому */
     gap: 30px;
     transform: rotate(0deg);
@@ -207,11 +206,57 @@
     margin-left: auto;
     margin-right: auto;
   }
+  /* Отступ между секциями: следующий блок начинается на 50px ниже */
+  .section + .section { margin-top: 50px; }
   .section__title {
-    width: 768px;
+    width: 1160px;
     height: 41px;
     font-size: 30px;
     line-height: 135%;
+    padding-left: 0; /* убрать возможные отступы слева */
+    padding-right: 0;
+  }
+
+  /* Точная раскладка: текст 565x468 и галерея 565 шириной */
+  .section__content {
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .section__text {
+    width: 565px;
+    height: 468px;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .section__gallery {
+    width: 565px;
+    height: 316px; /* 186.17 + 129.83 */
+    position: relative;
+  }
+
+  .gallery__item--large {
+    width: 565px;
+    height: 161.8865203857422px;
+    top: 0.24px;
+    left: 0;
+  }
+
+  .gallery__item--small-left {
+    width: 270.0780029296875px;
+    height: 129.8297882080078px;
+    top: 186.17px;
+    left: 0;
+  }
+
+  .gallery__item--small-right {
+    width: 270.0780029296875px;
+    height: 129.8297882080078px;
+    top: 186.17px;
+    left: 294.922px; /* 565 - 270.078 */
   }
 }
 
@@ -219,14 +264,70 @@
 @media (max-width: 1160px) {
   .section {
     width: 768px;
-    height: auto;
+    height: auto; /* не фиксируем, чтобы избежать наложений */
     gap: 30px;
+    margin-left: auto;
+    margin-right: auto;
   }
+  /* Отступ между секциями: следующий блок начинается на 50px ниже */
+  .section + .section { margin-top: 50px; }
   .section__title {
     width: 768px;
     height: 41px;
     font-size: 30px;
     line-height: 135%;
+  }
+
+  /* Картинки сверху, текст снизу — только для секции О компании */
+  .section[aria-label="О компании"] .section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: stretch;
+  }
+
+  .section[aria-label="О компании"] .section__gallery {
+    order: 1;
+    width: 768px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 367.1148681640625px 30px 367.1148681640625px;
+    grid-template-rows: 220.05105590820312px 30px 176.47659301757812px;
+  }
+
+  .section[aria-label="О компании"] .gallery__item {
+    position: static;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .section[aria-label="О компании"] .gallery__item--large {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+  }
+
+  .section[aria-label="О компании"] .gallery__item--small-left {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .section[aria-label="О компании"] .gallery__item--small-right {
+    grid-column: 3;
+    grid-row: 3;
+  }
+
+  .section[aria-label="О компании"] .section__text {
+    order: 2;
+    width: 768px;
+    height: 372px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 30px; /* гарантируем отступ под галереей */
   }
 }
 
@@ -234,18 +335,52 @@
 @media (max-width: 768px) {
   .section {
     width: 576px;
-    height: auto;
+    height: auto; /* убираем фиксированную высоту, чтобы избежать наложений */
     gap: 30px;
     margin-left: auto;
     margin-right: auto;
     transform: rotate(0deg);
     opacity: 1;
   }
+  /* отступ между секциями 50px, чтобы блок не накладывался на кнопку */
+  .section + .section { margin-top: 50px; }
   .section__title {
     width: 576px;
     height: 24px;
     font-size: 20px;
     line-height: 120%;
+  }
+
+  /* О компании: галерея 576px, две нижние рядом */
+  .section[aria-label="О компании"] .section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .section[aria-label="О компании"] .section__gallery {
+    order: 1;
+    width: 576px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 273px 30px 273px; /* 273 + 30 + 273 = 576 */
+    grid-template-rows: 165.03829193115234px 30px 132.3574447631836px; /* 0.75 масштаб от 768 */
+  }
+  .section[aria-label="О компании"] .gallery__item {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .section[aria-label="О компании"] .gallery__item--large { grid-column: 1 / span 3; grid-row: 1; }
+  .section[aria-label="О компании"] .gallery__item--small-left { grid-column: 1; grid-row: 3; }
+  .section[aria-label="О компании"] .gallery__item--small-right { grid-column: 3; grid-row: 3; }
+
+  .section[aria-label="О компании"] .section__text {
+    order: 2;
+    width: 576px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 }
 
@@ -253,16 +388,61 @@
 @media (max-width: 576px) {
   .section {
     width: 360px;
-    height: auto;
+    height: 843.1913452148438px;
     gap: 20px;
     margin-left: auto;
     margin-right: auto;
+    transform: rotate(0deg);
+    opacity: 1;
   }
+  /* отделяем блоки как на 1160 — 50px между секциями */
+  .section + .section { margin-top: 50px; }
   .section__title {
     width: 360px;
     height: 24px;
     font-size: 20px;
     line-height: 120%;
+  }
+
+  /* О компании: адаптируем под ширину 360px */
+  .section[aria-label="О компании"] .section__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .section[aria-label="О компании"] .section__gallery {
+    order: 1;
+    width: 360px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 171.06381225585938px 20px 171.06381225585938px; /* точные размеры */
+    grid-template-rows: 118.47px 20px 82.72335052490234px; /* точные размеры */
+  }
+  .section[aria-label="О компании"] .gallery__item {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .section[aria-label="О компании"] .gallery__item--large { 
+    grid-column: 1 / span 3; 
+    grid-row: 1; 
+  }
+  .section[aria-label="О компании"] .gallery__item--small-left { 
+    grid-column: 1; 
+    grid-row: 3; 
+  }
+  .section[aria-label="О компании"] .gallery__item--small-right { 
+    grid-column: 3; 
+    grid-row: 3; 
+  }
+
+  .section[aria-label="О компании"] .section__text {
+    order: 2;
+    width: 360px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }
 
@@ -275,6 +455,8 @@
     margin-left: auto;
     margin-right: auto;
   }
+  /* отделяем блоки как на 1160 — 50px между секциями */
+  .section + .section { margin-top: 50px; }
   .section__title {
     width: 360px;
     height: 24px;

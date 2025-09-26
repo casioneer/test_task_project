@@ -113,17 +113,19 @@
   color: #ffffff;
 }
 
-/* 1440: одна колонка 768, высота 220, gap 30 */
+/* 1440: две колонки 565px каждая */
 @media (max-width: 1440px) {
   .cards {
-    grid-template-columns: 768px;
+    grid-template-columns: repeat(2, 565px);
     grid-auto-rows: 220px;
     gap: 30px;
+    justify-content: center;
+    width: 1160px; /* 565 + 30 + 565 = 1160px */
     margin-left: auto;
     margin-right: auto;
   }
   .cards__item {
-    width: 768px;
+    width: 565px;
     height: 220px;
     border-color: #DEDEDE;
     border-width: 1px;
@@ -158,6 +160,9 @@
     grid-auto-rows: 220px;
     gap: 30px;
     justify-content: center; /* центрируем грид на 769–1160 */
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .cards__item {
     width: 768px;
@@ -175,6 +180,7 @@
     grid-template-columns: 576px;
     grid-auto-rows: 220px;
     gap: 30px;
+    width: 576px;
     margin-left: auto;  /* центрируем одноколоночный грид */
     margin-right: auto;
   }
@@ -217,6 +223,9 @@
     grid-template-columns: repeat(2, 170px);
     grid-auto-rows: 373px;
     gap: 20px;
+    width: 360px;           /* фиксируем ширину контейнера */
+    margin-left: auto;      /* центрируем грид */
+    margin-right: auto;
   }
   .cards__item {
     width: 170px;
@@ -294,6 +303,9 @@
     grid-template-columns: repeat(2, 170px);
     grid-auto-rows: 373px;
     gap: 20px;
+    width: 360px;           /* такая же ширина контейнера, чтобы не прыгал */
+    margin-left: auto;
+    margin-right: auto;
   }
   .cards__item {
     width: 170px;
