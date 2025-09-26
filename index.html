@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Новый проект</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar" aria-label="Главная навигация">
+        <div class="navbar__inner">
+          <a class="navbar__logo" href="#" aria-label="На главную">
+            <img class="navbar__logo-image" src="./0651cbbf145d45978556580906a3ee8291d6ec37.png" alt="Логотип" />
+          </a>
+          <ul class="navbar__menu">
+            <li class="navbar__item"><a class="navbar__link" href="#">Главная</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#">Каталог</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#">О компании</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#">Оплата и доставка</a></li>
+            <li class="navbar__item"><a class="navbar__link" href="#">Контакты</a></li>
+          </ul>
+          <button class="navbar__toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+            <span class="navbar__bar" aria-hidden="true"></span>
+            <span class="navbar__bar" aria-hidden="true"></span>
+            <span class="navbar__bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </nav>
+      <h1 class="header__title" style="display:none">Стартовый шаблон</h1>
+    </header>
+    <main class="main">
+      <div class="section" aria-label="Следующий блок">
+        <h2 class="section__title">Рекомендуемое оборудование</h2>
+        <div class="cards">
+          <div class="cards__item" aria-label="Товар 1">
+            <div class="cards__media" aria-hidden="true">
+              <img class="cards__img" src="./a23e83c3ae35fdd1c5b5bd97f4e9ec376f3e9f0a (1).png" alt="Товар 1" />
+            </div>
+            <div class="cards__info">
+              <div class="cards__title">Плоский тяговый ремень для лифта GRS AAA717X1 (12 кордов)</div>
+              <div class="cards__stock">
+                <span class="cards__check" aria-hidden="true">
+                  <svg class="cards__check-icon" width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 2L2.5 3L5 1" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="cards__stock-text">В наличии 50 м.</span>
+              </div>
+              <button class="cards__button" type="button"><span class="cards__button-text">Подробнее</span></button>
+            </div>
+          </div>
+          <div class="cards__item" aria-label="Товар 2">
+            <div class="cards__media" aria-hidden="true">
+              <img class="cards__img" src="./861a4c2279888db45dd2e57b34063229b4f94d74.png" alt="Товар 2" />
+            </div>
+            <div class="cards__info">
+              <div class="cards__title">Плоский тяговый ремень для лифта GRS AAA717X1 (12 кордов)</div>
+              <div class="cards__stock">
+                <span class="cards__check cards__check--warning" aria-hidden="true">
+                  <svg class="cards__check-icon" width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 2L2.5 3L5 1" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="cards__stock-text">Под заказ</span>
+              </div>
+              <button class="cards__button" type="button"><span class="cards__button-text">Подробнее</span></button>
+            </div>
+          </div>
+          <div class="cards__item" aria-label="Товар 3">
+            <div class="cards__media" aria-hidden="true">
+              <img class="cards__img" src="./39deb2ecab507947eac540f51ce87b060a00be8e.png" alt="Товар 3" />
+            </div>
+            <div class="cards__info">
+              <div class="cards__title">Стальной канат для лифта GRS 8X19S-NFC 1570</div>
+              <div class="cards__stock">
+                <span class="cards__check" aria-hidden="true">
+                  <svg class="cards__check-icon" width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 2L2.5 3L5 1" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="cards__stock-text">В наличии 50 м.</span>
+              </div>
+              <button class="cards__button" type="button"><span class="cards__button-text">Подробнее</span></button>
+            </div>
+          </div>
+          <div class="cards__item" aria-label="Товар 4">
+            <div class="cards__media" aria-hidden="true">
+              <img class="cards__img" src="./a23e83c3ae35fdd1c5b5bd97f4e9ec376f3e9f0a.png" alt="Товар 4" />
+            </div>
+            <div class="cards__info">
+              <div class="cards__title">Стальной канат для лифта GRS 9X21F(9Х17)-IWRC 1570</div>
+              <div class="cards__stock">
+                <span class="cards__check" aria-hidden="true">
+                  <svg class="cards__check-icon" width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 2L2.5 3L5 1" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="cards__stock-text">В наличии 50 м.</span>
+              </div>
+              <button class="cards__button" type="button"><span class="cards__button-text">Подробнее</span></button>
+            </div>
+          </div>
+          <div class="cards__item" aria-label="Товар 5">
+            <div class="cards__media" aria-hidden="true">
+              <img class="cards__img" src="./293bd4b53f42af76475ae1dde13a7714c7fc8325.png" alt="Товар 5" />
+            </div>
+            <div class="cards__info">
+              <div class="cards__title">Стальной канат для лифта GRS 8X19W-CWC 1570</div>
+              <div class="cards__stock">
+                <span class="cards__check" aria-hidden="true">
+                  <svg class="cards__check-icon" width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 2L2.5 3L5 1" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="cards__stock-text">В наличии 50 м.</span>
+              </div>
+              <button class="cards__button" type="button"><span class="cards__button-text">Подробнее</span></button>
+            </div>
+          </div>
+          <div class="cards__item" aria-label="Товар 6">
+            <div class="cards__media" aria-hidden="true">
+              <img class="cards__img" src="./af7a6fdf0d9caa30d8bfc85d4c954233afbfa83b.png" alt="Товар 6" />
+            </div>
+            <div class="cards__info">
+              <div class="cards__title">Купить плоский тяговый ремень для лифта GRS AAA717AJ1(8 кордов)</div>
+              <div class="cards__stock">
+                <span class="cards__check" aria-hidden="true">
+                  <svg class="cards__check-icon" width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 2L2.5 3L5 1" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="cards__stock-text">В наличии 50 м.</span>
+              </div>
+              <button class="cards__button" type="button"><span class="cards__button-text">Подробнее</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+  </html>
+

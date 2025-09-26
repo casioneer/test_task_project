@@ -1,0 +1,17 @@
+/* Импорт блоков по БЭМ */
+@import url("./blocks/header/header.css");
+@import url("./blocks/navbar/navbar.css");
+@import url("./blocks/main/main.css");
+@import url("./blocks/section/section.css");
+@import url("./blocks/cards/cards.css");
+@import url("./blocks/button/button.css");
+
+/* Базовые стили по умолчанию */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #111827;
+  background: #ffffff;
+}

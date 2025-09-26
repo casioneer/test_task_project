@@ -1,0 +1,12 @@
+.header {
+  padding: 16px 20px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.header__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
