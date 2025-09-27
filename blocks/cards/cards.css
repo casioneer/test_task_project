@@ -104,14 +104,14 @@
 /* Hover состояние для кнопок товаров */
 .cards__button:hover {
   background: #EE753E !important; /* оранжевый цвет на hover */
-  border: 1px solid #EE753E !important;
+  border: none !important;
   color: #ffffff !important;
 }
 
 /* Disabled состояние для кнопок товаров */
 .cards__button:disabled {
   background: #272A33 !important; /* темный цвет на disabled */
-  border: 1px solid #272A33 !important;
+  border: none !important;
   color: #ffffff !important;
   opacity: 0.2 !important;
   cursor: not-allowed !important;
@@ -250,7 +250,7 @@
     display: flex;              /* элементы в столбик */
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between; /* распределяем элементы по высоте */
     gap: 10px;                  /* расстояние между элементами 10px */
     border-radius: 8px;
     border-width: 1px;
@@ -279,6 +279,9 @@
     padding-right: 0;
     gap: 10px;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto; /* прижимаем к низу карточки */
   }
   /* Надпись (заголовок) — Open Sans 14 / 145% */
   .cards__title {
@@ -297,6 +300,7 @@
     height: auto;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 10px; /* 10px выше кнопки */
   }
   .cards__stock-text { width: auto; height: auto; font-size: 14px; line-height: 145%; }
   /* Кнопка 150x43, паддинги по заданию */
@@ -308,6 +312,7 @@
     padding-bottom: 12px;
     padding-left: 30px;
     border-radius: 8px;
+    margin-bottom: 10px; /* 10px от нижней границы карточки */
   }
   .cards__button-text { width: auto; height: auto; font-size: 14px; line-height: 145%; }
   /* показывать только первые 4 карточки */

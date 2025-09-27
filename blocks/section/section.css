@@ -6,7 +6,7 @@
   gap: 30px;
   opacity: 1;
   background: transparent;           /* без заливки */
-  border: 1px solid #272A33;         /* тонкая граница */
+  border: none;
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
@@ -49,26 +49,32 @@
   border-radius: 8px;
   background: #272A33;
   color: #ffffff;
-  border: 1px solid #272A33;
+  border: none;
   cursor: pointer;
   padding: 8px 30px 12px 30px;
   gap: 10px;
   opacity: 1;
   transform: rotate(0deg);
   transition: all 0.3s ease;
+  font-family: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 145%;
+  letter-spacing: 0%;
 }
 
 /* Базовые стили для кнопки Подробнее в секции О компании */
 section[aria-label="О компании"] .section__cta-button {
   background: #272A33;
   color: #ffffff;
-  border: 1px solid #272A33;
+  border: none;
 }
 
 /* Hover состояние для кнопки Подробнее в секции О компании */
 .section__cta-button:hover {
   background: #EE753E !important; /* оранжевый цвет на hover */
-  border: 1px solid #EE753E !important;
+  border: none !important;
   color: #ffffff !important;
 }
 

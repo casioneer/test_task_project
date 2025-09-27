@@ -150,7 +150,8 @@
 }
 
 .navbar__menu-mobile .navbar__link-mobile:hover {
-  background-color: #f8f9fa;
+  color: #EE753E !important; /* оранжевый цвет при hover */
+  background-color: transparent;
 }
 
 /* Анимация бургера */
@@ -291,7 +292,6 @@
 .navbar__link,
 .navbar__link:link,
 .navbar__link:visited,
-.navbar__link:hover,
 .navbar__link:active {
   display: inline-flex;
   align-items: center;
@@ -306,6 +306,12 @@
   color: #111827; /* тёмные пункты меню */
   text-decoration: none;
   white-space: nowrap; /* не переносить слова */
+  transition: color 0.3s ease;
+}
+
+/* Hover состояние для ссылок навбара */
+.navbar__link:hover {
+  color: #EE753E !important; /* оранжевый цвет при hover */
 }
 
 /* Контейнер хедера центрируем содержимое на ширину 1920 */
